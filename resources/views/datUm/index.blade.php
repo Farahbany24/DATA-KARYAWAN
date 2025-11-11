@@ -27,7 +27,7 @@
     <!-- Header -->
     <div class="p-4 border-b border-b-gray-800">
       <div class="flex items-center">
-        <img id="sidebar-logo" src="{{ asset('images/lambang.png') }}" alt="" class="w-14 h-14 object-cover mr ml-1 transition-all duration-300">
+        <img id="sidebar-logo" src="{{ asset('images/lambang.png') }}" alt="" class="w-14 h-14 object-cover mr-1 ml-1 transition-all duration-300">
         <span id="sidebar-title" class="text-sm font-bold transition-all duration-300 overflow-hidden whitespace-nowrap">DATA KARYAWAN</span>
         <button id="toggle-sidebar" class="ml-auto p-1 hover:bg-gray-700 rounded transition-colors hidden md:block">
           <i id="toggle-arrow" class="ri-arrow-left-double-line text-lg transition-transform duration-300"></i>
@@ -401,7 +401,7 @@
             });
 
             // Fix hover area - ubah padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
               item.classList.remove('px-4', 'py-2');
               item.classList.add('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
@@ -464,7 +464,7 @@
             });
 
             // Restore normal padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
               item.classList.add('px-4', 'py-2');
               item.classList.remove('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');

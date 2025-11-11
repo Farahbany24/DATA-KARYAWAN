@@ -412,7 +412,7 @@
             });
 
             // Fix hover area - ubah padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
               item.classList.remove('px-4', 'py-2');
               item.classList.add('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
@@ -475,7 +475,7 @@
             });
 
             // Restore normal padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
               item.classList.add('px-4', 'py-2');
               item.classList.remove('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
