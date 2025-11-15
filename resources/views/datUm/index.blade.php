@@ -84,7 +84,7 @@
         <li>
           <a href="" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-donut-chart-fill mr-3 text-lg flex-shrink-0"></i>
-            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Absensi</span>
+            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">File Manager</span>
           </a>
         </li>
       </ul>
