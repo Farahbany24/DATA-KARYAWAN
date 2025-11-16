@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('sk', SkController::class);
     // skiv
     Route::resource('skiv', SkivController::class);
+    // file manager
+    Route::view('/file-manager', 'file-manager.index')->name('file-manager');
 });
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
