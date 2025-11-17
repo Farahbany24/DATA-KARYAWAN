@@ -39,9 +39,23 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
+        ],
+
+        'file-manager-left' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/file-manager-left'),
+            'url' => env('APP_URL') . '/storage/file-manager-left',
+            'visibility' => 'public',
+        ],
+
+        'file-manager-right' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/file-manager-right'),
+            'url' => env('APP_URL') . '/storage/file-manager-right',
+            'visibility' => 'public',
         ],
 
         's3' => [

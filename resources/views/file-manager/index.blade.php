@@ -146,12 +146,16 @@
 
   <!-- Main Content -->
   <div id="main-content" class="transition-all duration-300 md:ml-[260px] pt-16 md:pt-0">
+    <div class="p-6">
+       <iframe src="{{ route('filemanager.raw') }}" 
+            class="w-full h-[650px] border rounded-lg bg-white">
+    </iframe>
     </div>
+  </div>
 
 
 
-
-     <script>
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       const sidebar = document.getElementById('sidebar');
       const mainContent = document.getElementById('main-content');
@@ -360,5 +364,5 @@
     });
   </script>
 </body>
-</html>
 
+</html>
