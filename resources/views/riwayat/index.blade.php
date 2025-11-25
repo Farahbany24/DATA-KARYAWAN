@@ -11,9 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body class="font-poppins h-screen bg-gray-100 overflow-hidden">
+<body class="font-poppins bg-gray-100 ">
   <!-- Mobile Menu Button (Only visible on mobile) -->
-  <div class="md:hidden fixed top-4 left-4 z-50">
+  <div class="md:hidden absolute top-4 left-4 z-50">
     <button id="mobile-menu-btn" class="bg-gray-800 text-white px-2 py-1 rounded-md hover:bg-gray-700">
       <i class="ri-menu-line text-xl"></i>
     </button>

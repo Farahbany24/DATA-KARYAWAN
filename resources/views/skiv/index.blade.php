@@ -11,9 +11,9 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="font-poppins h-screen bg-gray-100 overflow-hidden">
+<body class="font-poppins bg-gray-100">
     <!-- Mobile Menu Button (Only visible on mobile) -->
-    <div class="md:hidden fixed top-4 left-4 z-50">
+    <div class="md:hidden absolute top-4 left-4 z-50">
         <button id="mobile-menu-btn" class="bg-gray-800 text-white px-2 py-1 rounded-md hover:bg-gray-700">
             <i class="ri-menu-line text-xl"></i>
         </button>
