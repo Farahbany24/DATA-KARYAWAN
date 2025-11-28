@@ -220,7 +220,7 @@
                                     <a href="{{route ('skiv.edit', $skiv->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                                    <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
                                 </form>
                             </td>
                         </tr>
@@ -300,7 +300,7 @@
                             <a href="{{route('skiv.edit', $skiv->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                            <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
                         </form>
                     </div>
                 </div>
