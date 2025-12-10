@@ -151,7 +151,7 @@
   </div>
   <!-- end of sidebar -->
 
-  <!-- Main Content -->
+  <!-- Main Content User Controll-->
   <div id="main-content" class="transition-all duration-300 md:ml-[260px] pt-16 md:pt-0">
     <!-- table -->
     <div class="p-5 mt-5">
@@ -207,16 +207,99 @@
 
       <div class="grid grid-cols-1 gap-4 md:hidden">
         <div class="flex justify-between items-center mb-2 max-w-full overflow-x-auto sm:hidden">
-          <a class="bg-gray-800 rounded-md px-4 py-2 text-base font-medium hover:bg-gray-700 text-white h-10" href="{{route ('administrasi.create')}}">
+          <a class="bg-gray-800 rounded-md px-4 py-2 text-base font-medium hover:bg-gray-700 text-white h-10" href="{{route ('show.register')}}">
             Tambah
           </a>
-           <form action="{{ route('administrasi.index') }}" method="GET" class="mb-1">
-          <!-- Search Bar -->
-          <div class="relative">
-            <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
-            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+           <a class="text-gray-800 text-xl font-bold">USER</a>
+        </div>
+
+        @foreach ($allUser as $key => $user)
+        <div class="bg-white p-4 space-y-4 rounded-lg shadow mt-0">
+          <!-- No -->
+          <div class="flex items-center justify-between w-full text-base">
+            <div class="font-semibold text-gray-400">NO.</div>
+            <div class="font-semibold text-blue-500 text-right">{{$key + 1}}</div>
           </div>
-        </form>
+          <!-- NAMA -->
+          <div class="flex items-center justify-between w-full  text-base">
+            <div class="font-semibold text-gray-400">Nama</div>
+            <div class="text-sm text-gray-700 text-right">{{$user->nama}}</div>
+          </div>
+           <div class="flex items-center justify-between w-full  text-base">
+            <div class="font-semibold text-gray-400">Email</div>
+            <div class="text-sm text-gray-700 text-right">{{$user->email}}</div>
+          </div>
+
+          <!-- AKSI -->
+          <div class="flex items-center justify-center w-full">
+            <form action="{}" method="POST" class="flex space-x-2">
+              <a href="{}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+            </form>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
+  <!-- endtable -->
+
+   <!-- Main Content Log Activity -->
+  <div id="main-content" class="transition-all duration-300 md:ml-[260px] pt-16 md:pt-0">
+    <!-- table -->
+    <div class="p-5 mt-5">
+
+      <div class="flex justify-end items-center mb-4 max-w-full overflow-x-auto hidden sm:flex">
+        <a class="text-gray-800 text-xl font-bold">LOG ACTIVITY</a>
+      </div>
+
+
+      <div class="max-h-[40vh] overflow-y-auto rounded-lg shadow hidden md:block">
+        <table class="w-full ">
+          <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <tr>
+              <th class="sticky top-0 bg-gray-50 z-10 w-10 p-3 text-sm font-semibold tracking-wide text-center">No.</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Nama</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Email</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Role</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 ">
+            @foreach ($allUser as $key => $user)
+            <tr class="{{ $loop->odd ? 'bg-white' : 'bg-gray-50' }}">
+              <td class="p-3 text-sm font-bold text-blue-500 whitespace-nowrap text-center">{{$key + 1}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                {{$user->name}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                {{$user->email}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">{{$user->roles->pluck('name')->implode(',')}}</td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                <form action="{{ route('admin.destroy', $user->id) }}" method="POST" class="flex space-x-2  justify-center">
+                  <a href="{{route('admin.edit', $user->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 md:hidden">
+        <div class="flex justify-end items-center mb-2 max-w-full overflow-x-auto sm:hidden">
+           <a class="text-gray-800 text-xl font-bold">LOG ACTIVITY</a>
         </div>
 
         @foreach ($allUser as $key => $user)
