@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <title>DATA KARYAWAN GIRI</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
@@ -11,9 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body class="font-poppins h-screen bg-gray-100 overflow-hidden">
+<body class="font-poppins bg-gray-100">
   <!-- Mobile Menu Button (Only visible on mobile) -->
-  <div class="md:hidden fixed top-4 left-4 z-50">
+  <div class="md:hidden absolute top-4 left-4 z-50">
     <button id="mobile-menu-btn" class="bg-gray-800 text-white px-2 py-1 rounded-md hover:bg-gray-700">
       <i class="ri-menu-line text-xl"></i>
     </button>
@@ -38,40 +39,38 @@
     <!-- Navigation Menu -->
     <div class="flex-1 p-4 overflow-y-auto">
       <ul class="space-y-1">
-        @role('admin')
-        <li>
-          <a href="{{route ('admin.index')}}" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+         <li>
+          <a href="{{route ('admin.index')}}" id="nav-item-1" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('admin.index') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
             <i class="ri-admin-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Admin Panel</span>
           </a>
         </li>
-        @endrole
         <li>
-          <a href="{{route ('pegawai.index')}}" id="nav-item-1" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
-            <i class="ri-user-line mr-3 text-lg flex-shrink-0"></i>
+          <a href="{{route ('pegawai.index')}}" id="nav-item-2" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+            <i class="ri-user-6-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Utama</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('riwayat.index')}}" id="nav-item-2" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('riwayat.index')}}" id="nav-item-3" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-calendar-schedule-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Riwayat</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('administrasi.index')}}" id="nav-item-3" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('administrasi.index')}}" id="nav-item-4" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-archive-stack-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Administrasi & kerja</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('skp.index')}}" id="nav-item-4" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('skp.index')}}" id="nav-item-5" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-bar-chart-2-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">SKP</span>
           </a>
         </li>
         <li class="group">
-          <a href="" id="nav-item-5" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle transition-colors">
+          <a href="" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle transition-colors">
             <i class="ri-file-list-3-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap flex-1">SK</span>
             <i class="ri-arrow-right-s-line text-lg flex-shrink-0 group-[.selected]:rotate-90 transition-transform sidebar-dropdown-arrow"></i>
@@ -90,8 +89,8 @@
           </ul>
         </li>
         <li>
-          <a href="{{route ('file-manager')}}" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('file-manager') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
-            <i class="ri-donut-chart-fill mr-3 text-lg flex-shrink-0"></i>
+          <a href="{{route ('file-manager')}}" id="nav-item-7" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+            <i class="ri-hard-drive-2-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">File Manager</span>
           </a>
         </li>
@@ -154,13 +153,104 @@
 
   <!-- Main Content -->
   <div id="main-content" class="transition-all duration-300 md:ml-[260px] pt-16 md:pt-0">
-    <div class="p-6">
-      <iframe src="{{ route('filemanager.raw') }}"
-        class="w-full h-[650px] border rounded-lg bg-white">
-      </iframe>
+    <!-- table -->
+    <div class="p-5 mt-5">
+
+      <div class="flex justify-between items-center mb-4 max-w-full overflow-x-auto hidden sm:flex">
+        <a class="bg-gray-800 rounded-md px-4 py-2 text-base font-medium hover:bg-gray-700 text-white h-10" href="{{route ('show.register')}}">
+          Tambah
+        </a>
+        <a class="text-gray-800 text-xl font-bold">USER</a>
+      </div>
+
+
+      <div class="max-h-[40vh] overflow-y-auto rounded-lg shadow hidden md:block">
+        <table class="w-full ">
+          <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <tr>
+              <th class="sticky top-0 bg-gray-50 z-10 w-10 p-3 text-sm font-semibold tracking-wide text-center">No.</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Nama</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Email</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center truncate">Role</th>
+              <th class="sticky top-0 bg-gray-50 z-10 w-48 p-3 text-sm font-semibold tracking-wide text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 ">
+            @foreach ($allUser as $key => $user)
+            <tr class="{{ $loop->odd ? 'bg-white' : 'bg-gray-50' }}">
+              <td class="p-3 text-sm font-bold text-blue-500 whitespace-nowrap text-center">{{$key + 1}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                {{$user->name}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">
+                {{$user->email}}
+              </td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap text-center">{{$user->roles->pluck('name')->implode(',')}}</td>
+
+              <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                <form action="{{ route('admin.destroy', $user->id) }}" method="POST" class="flex space-x-2  justify-center">
+                  <a href="{{route('admin.edit', $user->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 md:hidden">
+        <div class="flex justify-between items-center mb-2 max-w-full overflow-x-auto sm:hidden">
+          <a class="bg-gray-800 rounded-md px-4 py-2 text-base font-medium hover:bg-gray-700 text-white h-10" href="{{route ('administrasi.create')}}">
+            Tambah
+          </a>
+           <form action="{{ route('administrasi.index') }}" method="GET" class="mb-1">
+          <!-- Search Bar -->
+          <div class="relative">
+            <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
+            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+        </form>
+        </div>
+
+        @foreach ($allUser as $key => $user)
+        <div class="bg-white p-4 space-y-4 rounded-lg shadow mt-0">
+          <!-- No -->
+          <div class="flex items-center justify-between w-full text-base">
+            <div class="font-semibold text-gray-400">NO.</div>
+            <div class="font-semibold text-blue-500 text-right">{{$key + 1}}</div>
+          </div>
+          <!-- NAMA -->
+          <div class="flex items-center justify-between w-full  text-base">
+            <div class="font-semibold text-gray-400">Nama</div>
+            <div class="text-sm text-gray-700 text-right">{{$user->nama}}</div>
+          </div>
+           <div class="flex items-center justify-between w-full  text-base">
+            <div class="font-semibold text-gray-400">Email</div>
+            <div class="text-sm text-gray-700 text-right">{{$user->email}}</div>
+          </div>
+
+          <!-- AKSI -->
+          <div class="flex items-center justify-center w-full">
+            <form action="{}" method="POST" class="flex space-x-2">
+              <a href="{}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+            </form>
+          </div>
+        </div>
+        @endforeach
+      </div>
     </div>
   </div>
-
+  <!-- endtable -->
 
 
   <script>
@@ -226,7 +316,7 @@
             });
 
             // Fix hover area - ubah padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6, #nav-item-7').forEach(item => {
               item.classList.remove('px-4', 'py-2');
               item.classList.add('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
@@ -289,7 +379,7 @@
             });
 
             // Restore normal padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6, #nav-item-7').forEach(item => {
               item.classList.add('px-4', 'py-2');
               item.classList.remove('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
@@ -371,6 +461,8 @@
       });
     });
   </script>
+
+
 </body>
 
 </html>

@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>DATA KARYAWAN</title>
+  <title>DATA KARYAWAN GIRI</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
@@ -39,32 +39,40 @@
     <!-- Navigation Menu -->
     <div class="flex-1 p-4 overflow-y-auto">
       <ul class="space-y-1">
+        @role('admin')
         <li>
-          <a href="{{route ('pegawai.index')}}" id="nav-item-1" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('admin.index')}}" id="nav-item-1" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+            <i class="ri-admin-fill mr-3 text-lg flex-shrink-0"></i>
+            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Admin Panel</span>
+          </a>
+        </li>
+        @endrole
+        <li>
+          <a href="{{route ('pegawai.index')}}" id="nav-item-2" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-user-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Utama</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('riwayat.index')}}" id="nav-item-2" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('riwayat.index')}}" id="nav-item-3" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-calendar-schedule-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Riwayat</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('administrasi.index')}}" id="nav-item-3" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('administrasi.index') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
+          <a href="{{route ('administrasi.index')}}" id="nav-item-4" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('administrasi.index') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
             <i class="ri-archive-stack-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Administrasi & kerja</span>
           </a>
         </li>
         <li>
-          <a href="{{route ('skp.index')}}" id="nav-item-4" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('skp.index')}}" id="nav-item-5" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-bar-chart-2-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">SKP</span>
           </a>
         </li>
         <li class="group">
-          <a href="" id="nav-item-5" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle transition-colors">
+          <a href="" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100 sidebar-dropdown-toggle transition-colors">
             <i class="ri-file-list-3-line mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap flex-1">SK</span>
             <i class="ri-arrow-right-s-line text-lg flex-shrink-0 group-[.selected]:rotate-90 transition-transform sidebar-dropdown-arrow"></i>
@@ -83,7 +91,7 @@
           </ul>
         </li>
         <li>
-          <a href="{{route ('file-manager')}}" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+          <a href="{{route ('file-manager')}}" id="nav-item-7" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-donut-chart-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">File Manager</span>
           </a>
@@ -248,13 +256,13 @@
           <a class="bg-gray-800 rounded-md px-4 py-2 text-base font-medium hover:bg-gray-700 text-white h-10" href="{{route ('administrasi.create')}}">
             Tambah
           </a>
-           <form action="{{ route('administrasi.index') }}" method="GET" class="mb-1">
-          <!-- Search Bar -->
-          <div class="relative">
-            <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
-            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-          </div>
-        </form>
+          <form action="{{ route('administrasi.index') }}" method="GET" class="mb-1">
+            <!-- Search Bar -->
+            <div class="relative">
+              <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
+              <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+          </form>
         </div>
 
         @foreach ($allAdministrasi as $key => $administrasi)
@@ -406,7 +414,7 @@
             });
 
             // Fix hover area - ubah padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6, #nav-item-7').forEach(item => {
               item.classList.remove('px-4', 'py-2');
               item.classList.add('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');
@@ -469,7 +477,7 @@
             });
 
             // Restore normal padding dan positioning
-            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6').forEach(item => {
+            document.querySelectorAll('#nav-item-1, #nav-item-2, #nav-item-3, #nav-item-4, #nav-item-5, #nav-item-6, #nav-item-7').forEach(item => {
               item.classList.add('px-4', 'py-2');
               item.classList.remove('p-2', 'justify-center', 'w-fit', 'mx-auto');
               const icon = item.querySelector('i');

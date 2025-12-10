@@ -38,6 +38,14 @@
         <!-- Navigation Menu -->
         <div class="flex-1 p-4 overflow-y-auto">
             <ul class="space-y-1">
+                @role('admin')
+                <li>
+                    <a href="{{route ('admin.index')}}"  class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
+                        <i class="ri-admin-fill mr-3 text-lg flex-shrink-0"></i>
+                        <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Admin Panel</span>
+                    </a>
+                </li>
+                @endrole
                 <li>
                     <a href="{{route ('pegawai.index')}}" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
                         <i class="ri-user-line mr-3 text-lg flex-shrink-0"></i>
@@ -267,12 +275,12 @@
                         Tambah
                     </a>
                     <form action="{{ route('sk.index') }}" method="GET" class="mb-1">
-                    <!-- Search Bar -->
-                    <div class="relative">
-                        <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
-                        <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    </div>
-                </form>
+                        <!-- Search Bar -->
+                        <div class="relative">
+                            <input type="text" name="nama" autocomplete="off" id="search" placeholder="Cari Data" class="w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-transparent">
+                            <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </form>
                 </div>
 
                 @foreach ($allSk as $key => $sk)

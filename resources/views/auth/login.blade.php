@@ -15,7 +15,7 @@
   <div class="flex min-h-screen flex-col items-center justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img class="mx-auto h-20 w-20" src="{{ asset('images/lambang.png') }}" alt="Lambang Daerah" />
-      <h2 class="mt-8 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Login to your account</h2>
+      <h2 class="mt-8 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Login to Your account</h2>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -41,17 +41,26 @@
 
         <!-- validation error -->
         @if ($errors->any())
-        <ul class="px-4 py-2 bg-red-100">
-          @foreach ($errors->all() as $error)
-          <li class="my-2 text-red-500">{{$error}}</li>
-          @endforeach
-        </ul>
+        <div class="mt-3 max-w-sm px-4 py-3 rounded-lg bg-red-100 border border-red-300 text-red-600">
+          <ul class="list-disc pl-4">
+            @foreach ($errors->all() as $error)
+            <li class="my-1">{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
         @endif
+
+         @if (session('status'))
+        <div class="mt-3 max-w-sm px-4 py-3 rounded-lg bg-green-100 border border-green-300 text-green-600">
+            {{ session('status') }}
+        </div>
+        @endif
+
       </form>
 
       <p class="mt-10 text-center text-sm/6 text-gray-500">
-        Don't have account?
-        <a href="{{ route('show.register')}}" class="font-semibold text-indigo-600 hover:text-indigo-500">Register</a>
+        Forgot Password?
+        <a href="{{ route('password.request')}}" class="font-semibold text-indigo-600 hover:text-indigo-500">Reset Password</a>
       </p>
     </div>
   </div>

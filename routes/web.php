@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PegawaiController;
@@ -34,10 +35,24 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
-    Route::get('/register', 'showRegister')->name('show.register');
     Route::get('/login', 'showLogin')->name('show.login');
-    Route::post('/register', 'register')->name('register');
     Route::post('/login', 'login')->name('login');
+    Route::get('/forgot-password', 'showForgotPassword')->name('password.request');
+    Route::post('/forgot-password', 'sendResetLinkEmail')->name('password.email');
+    Route::get('/reset-password/{token}', function (string $token) {return view('auth.reset-password', ['token' => $token]);})->name('password.reset');
+    Route::post('/reset-password', 'updatePassword')->name('password.update');
+});
+
+Route::middleware(['auth', 'role:admin'])
+    ->controller(AuthController::class)
+    ->group(function () {
+        Route::get('/register', 'showRegister')->name('show.register');
+        Route::post('/register', 'register')->name('register');
+    });
+
+// Admin Panel routes
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('admin', AdminController::class);
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
