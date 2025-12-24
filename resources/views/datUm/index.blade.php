@@ -49,7 +49,7 @@
         <li>
           <a href="{{route ('pegawai.index')}}" id="nav-item-2" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('pegawai.index') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
             <i class="ri-user-6-line mr-3 text-lg flex-shrink-0"></i>
-            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Utama</span>
+            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Pegawai</span>
           </a>
         </li>
         <li>
@@ -234,7 +234,7 @@
                   <a href="{{route ('pegawai.edit', $pegawai->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                  <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-red-400 text-white">Hapus</button>
                 </form>
               </td>
             </tr>
@@ -328,7 +328,7 @@
               <a href="{{route('pegawai.edit', $pegawai->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
               @csrf
               @method('DELETE')
-              <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+              <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-red-400 text-white">Hapus</button>
             </form>
           </div>
         </div>

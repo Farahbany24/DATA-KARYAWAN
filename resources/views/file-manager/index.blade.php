@@ -49,7 +49,7 @@
         <li>
           <a href="{{route ('pegawai.index')}}" id="nav-item-1" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
             <i class="ri-user-line mr-3 text-lg flex-shrink-0"></i>
-            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Utama</span>
+            <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Pegawai</span>
           </a>
         </li>
         <li>
@@ -91,7 +91,7 @@
         </li>
         <li>
           <a href="{{route ('file-manager')}}" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white {{ request()->routeIs('file-manager') ? 'bg-gray-800' : 'hover:bg-gray-800 hover:text-gray-300' }} transition-colors group relative">
-            <i class="ri-donut-chart-fill mr-3 text-lg flex-shrink-0"></i>
+           <i class="ri-hard-drive-2-fill mr-3 text-lg flex-shrink-0"></i>
             <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">File Manager</span>
           </a>
         </li>

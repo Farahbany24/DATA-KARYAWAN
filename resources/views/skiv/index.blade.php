@@ -49,7 +49,7 @@
                 <li>
                     <a href="{{route ('pegawai.index')}}" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
                         <i class="ri-user-line mr-3 text-lg flex-shrink-0"></i>
-                        <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Utama</span>
+                        <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">Data Pegawai</span>
                     </a>
                 </li>
                 <li>
@@ -93,7 +93,7 @@
                 </li>
                 <li>
                     <a href="{{route ('file-manager')}}" id="nav-item-6" class="flex items-center rounded-lg py-2 px-4 text-white hover:bg-gray-800 hover:text-gray-300 transition-colors group relative">
-                        <i class="ri-donut-chart-fill mr-3 text-lg flex-shrink-0"></i>
+                        <i class="ri-hard-drive-2-fill mr-3 text-lg flex-shrink-0"></i>
                         <span class="sidebar-text text-sm font-medium transition-all duration-300 overflow-hidden whitespace-nowrap">File Manager</span>
                     </a>
                 </li>
@@ -228,7 +228,7 @@
                                     <a href="{{route ('skiv.edit', $skiv->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                                    <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-red-400 text-white">Hapus</button>
                                 </form>
                             </td>
                         </tr>
@@ -308,7 +308,7 @@
                             <a href="{{route('skiv.edit', $skiv->id)}}" class="inline-flex items-center justify-center bg-blue-500 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-blue-400 text-white">Hapus</button>
+                            <button type="submit" class="inline-flex items-center justify-center bg-red-600 rounded-md px-2 py-2 text-[12px] font-medium hover:bg-red-400 text-white">Hapus</button>
                         </form>
                     </div>
                 </div>
